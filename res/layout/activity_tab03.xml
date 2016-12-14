@@ -1,0 +1,71 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wave="http://schemas.android.com/apk/res/com.shankes.websocketclient"
+    xmlns:sat="http://schemas.android.com/apk/res/com.shankes.websocketclient"
+    xmlns:roundprogress="http://schemas.android.com/apk/res/com.shankes.websocketclient"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@mipmap/pic_tab_bg" >
+
+    <!-- 波浪进度 -->
+    <com.shankes.customview.waveview.WaveView
+        android:id="@+id/wave_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blueviolet"
+        wave:above_wave_color="@android:color/white"
+        wave:blow_wave_color="@android:color/white"
+        wave:progress="80"
+        wave:wave_height="middle"
+        wave:wave_length="middle"
+        wave:wave_speed="normal" />
+
+    <Button
+        android:id="@+id/init_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:text="初始化" />
+
+    <!-- 滑动控制按钮 -->
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:progress="80" />
+
+    <!-- 卫星菜单 -->
+
+    <com.shankes.customview.satellitemenu.SatelliteMenu
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="200dp"
+        sat:closeOnClick="true"
+        sat:expandDuration="500"
+        sat:mainImage="@drawable/btn_menu_main_cute_smiley_yellow"
+        sat:satelliteDistance="170dp"
+        sat:totalSpacingDegree="90" />
+
+    <!-- 圆形进度条 -->
+
+    <com.shankes.customview.roundprogress.RoundProgressBar
+        android:id="@+id/roundProgressBar"
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_gravity="right|center_vertical"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="200dp"
+        roundprogress:roundColor="@color/red"
+        roundprogress:roundProgressColor="@color/lightgreen"
+        roundprogress:roundWidth="3dp"
+        roundprogress:textColor="@color/red"
+        roundprogress:textIsDisplayable="true"
+        roundprogress:textSize="18sp" />
+
+</FrameLayout>

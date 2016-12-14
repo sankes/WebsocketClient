@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- tab页底部菜单栏 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/beangreenwhite"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+    <!-- 底一 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_bottom_01"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_tab_bottom_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bottom_menu_01"
+            android:src="@mipmap/pic_tab_bottom_eyes_blue" />
+
+        <TextView
+            android:id="@+id/tv_tab_bottom_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_menu_01"
+            android:textColor="@color/blue" />
+    </LinearLayout>
+
+    <!-- 底二 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_bottom_02"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_tab_bottom_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bottom_menu_02"
+            android:src="@mipmap/pic_tab_bottom_gis_black" />
+
+        <TextView
+            android:id="@+id/tv_tab_bottom_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_menu_02" />
+    </LinearLayout>
+
+    <!-- 底三 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_bottom_03"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_tab_bottom_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bottom_menu_03"
+            android:src="@mipmap/pic_tab_bottom_alert_black" />
+
+        <TextView
+            android:id="@+id/tv_tab_bottom_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_menu_03" />
+    </LinearLayout>
+
+    <!-- 底四 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_bottom_04"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_tab_bottom_04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bottom_menu_04"
+            android:src="@mipmap/pic_tab_bottom_info_black" />
+
+        <TextView
+            android:id="@+id/tv_tab_bottom_04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_menu_04" />
+    </LinearLayout>
+
+</LinearLayout>

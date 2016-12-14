@@ -1,0 +1,15 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <com.shankes.websocketclient.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffeee9e2"
+        app:rotation_degrees="15.5"
+        tools:context=".FlingSwipeActivity" />
+
+    <include layout="@layout/fling_swipe_buttons" />
+
+</merge>

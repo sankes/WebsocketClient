@@ -1,0 +1,100 @@
+<resources>
+
+    <!--
+         Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels.
+    -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <!-- 圆形自定义网络图片使用 -->
+    <declare-styleable name="CircleNetworkImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <!-- 圆形自定义图片使用 -->
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <!-- 圆形进度条 -->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color" />
+        <attr name="roundProgressColor" format="color" />
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="max" format="integer"></attr>
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+
+    <!-- 水波纹进度 -->
+    <declare-styleable name="WaveView">
+        <attr name="above_wave_color" format="color" />
+        <attr name="blow_wave_color" format="color" />
+        <attr name="progress" format="integer" />
+        <attr name="wave_length" format="enum">
+            <enum name="large" value="1" />
+            <enum name="middle" value="2" />
+            <enum name="little" value="3" />
+        </attr>
+        <attr name="wave_height" format="enum">
+            <enum name="large" value="1" />
+            <enum name="middle" value="2" />
+            <enum name="little" value="3" />
+        </attr>
+        <attr name="wave_speed" format="enum">
+            <enum name="fast" value="1" />
+            <enum name="normal" value="2" />
+            <enum name="slow" value="3" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="Themes">
+        <attr name="waveViewStyle" format="reference" />
+    </declare-styleable>
+
+    <!-- 瀑布流 -->
+    <declare-styleable name="StaggeredGridView">
+        <attr name="column_count" format="integer" />
+        <attr name="column_count_portrait" format="integer" />
+        <attr name="column_count_landscape" format="integer" />
+        <attr name="item_margin" format="dimension" />
+        <attr name="grid_paddingLeft" format="dimension" />
+        <attr name="grid_paddingRight" format="dimension" />
+        <attr name="grid_paddingTop" format="dimension" />
+        <attr name="grid_paddingBottom" format="dimension" />
+    </declare-styleable>
+
+    <!-- 左滑右滑 -->
+    <declare-styleable name="SwipeFlingAdapterView">
+        <attr name="SwipeFlingStyle" format="reference" />
+        <attr name="rotation_degrees" format="float" />
+        <attr name="min_adapter_stack" format="integer" />
+        <attr name="max_visible" format="integer" />
+    </declare-styleable>
+
+    <!-- selectView -->
+    <declare-styleable name="MySelectView">
+        <attr name="textColor" format="color"></attr>
+        <attr name="lineColor" format="color"></attr>
+        <attr name="textSize" format="dimension"></attr>
+    </declare-styleable>
+
+    <!-- 柱状图 -->
+    <declare-styleable name="MyChartView">
+        <attr name="leftColor" format="color"></attr>
+        <attr name="rightColor" format="color"></attr>
+        <attr name="xyColor" format="color"></attr>
+    </declare-styleable>
+
+</resources>

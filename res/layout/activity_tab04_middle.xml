@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+    <!-- 图灵机器人 -->
+
+    <RelativeLayout
+        android:id="@+id/rl_tab04_middle_turing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/beangreen"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/turing_robot"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <!-- 设置 -->
+
+    <RelativeLayout
+        android:id="@+id/rl_tab04_middle_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/beangreen"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setting"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <!-- 关于 -->
+
+    <RelativeLayout
+        android:id="@+id/rl_tab04_middle_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/beangreen"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

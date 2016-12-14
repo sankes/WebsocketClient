@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- tab页顶部标题栏 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/pic_tab_top_bg" >
+
+    <!-- 顶部标题左侧 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_top_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_tab_top_title_left_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/top_title_left01" />
+    </LinearLayout>
+
+    <!-- 顶部标题中间 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_top_title_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_tab_top_title_middle_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/top_title_middle01" />
+    </LinearLayout>
+
+    <!-- 顶部标题右侧 -->
+
+    <LinearLayout
+        android:id="@+id/ll_tab_top_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_tab_top_title_right_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/top_title_right01" />
+    </LinearLayout>
+
+</RelativeLayout>

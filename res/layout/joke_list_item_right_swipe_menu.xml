@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/itemRightMenuStickBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/xml_btn_right_menu_stick"
+        android:text="置顶"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/itemRightMenuDeleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/xml_btn_right_menu_delete"
+        android:text="删除"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/itemRightMenuCancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/xml_btn_right_menu_cancel"
+        android:text="取消"
+        android:textColor="@color/white" />
+
+</LinearLayout>

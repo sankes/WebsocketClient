@@ -1,20 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!-- 页面之间切换动画效果 -->
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+    </style>
+
+    <!-- 页面之间切换动画效果 -->
+    <style name="ActivityAnimation">
+
+        <!-- 第一个表示新的activity创建进入效果,右滑入动画 -->
+        <item name="android:activityOpenEnterAnimation">@anim/push_right_in</item>
+        <!-- 第2个表示activity还没有finish()下退出效果,左滑出动画 -->
+        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
+        <!-- 第3个表示上一个activity返回进入效果,右滑入动画 -->
+        <item name="android:activityCloseEnterAnimation">@anim/push_left_in</item>
+        <!-- 第4个表示的是activity finish()之后退出效果,左滑出动画 -->
+        <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
+        <!-- Activity的进入和退出效果也可以通过@android:windowEnterAnimation和@android:windowExitAnimation这两个item设定。 -->
+    </style>
+
+    <!-- 左滑右滑 -->
+    <style name="SwipeFling">
+        <item name="rotation_degrees">15</item>
+        <item name="min_adapter_stack">6</item>
+        <item name="max_visible">4</item>
+    </style>
+
+    <!-- 省市区三级联动动画 -->
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
 </resources>

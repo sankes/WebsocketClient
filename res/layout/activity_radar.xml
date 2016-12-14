@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <!-- 自定义雷达扫描view -->
+
+    <com.shankes.customview.RadarImageView
+        android:id="@+id/image_radar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/pic_radar_image" />
+
+    <!-- 退出 -->
+
+    <TextView
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/xml_shape_radar_textview_bg"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:text="@string/exit"
+        android:textColor="#cccccc"
+        android:textSize="15sp" />
+
+    <!-- 中心圆头像 -->
+
+    <RelativeLayout
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/pic_radar_middle_circle_head_icon_bg" >
+
+        <com.shankes.volley.customview.CircleNetworkImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/pic_radar_middle_circle_head_icon" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -4,23 +4,147 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <!-- 添加WiFi以及访问网络的权限 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 访问sdcard -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 闪光灯的权限 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 振动的权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 接收开启启动完成广播权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="23" />
 
     <application
+        android:name="com.shankes.app.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- 广播 -->
+        <receiver android:name=".receiver.MyBroadcastReceiver" >
+
+            <!-- 在系统启动后 -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <!-- 屏幕被打开 -->
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+            <!-- 屏幕被关闭 -->
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" />
+            </intent-filter>
+            <!-- 网络状态改变 -->
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 引导界面 -->
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:name=".guide.GuideActivity"
+            android:label="@string/title_activity_guide"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <!-- 欢迎界面 -->
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:label="@string/title_activity_welcome"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <!-- tab主界面 -->
+        <activity
+            android:name=".activity.TabActivity"
+            android:label="@string/title_activity_tab" >
+        </activity>
+        <!-- tab01 -->
+        <activity
+            android:name=".activity.Tab01Activity"
+            android:label="@string/title_activity_tab01" >
+        </activity>
+        <!-- tab02 -->
+        <activity
+            android:name=".activity.Tab02Activity"
+            android:label="@string/title_activity_tab02" >
+        </activity>
+        <!-- tab03 -->
+        <activity
+            android:name=".activity.Tab03Activity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- tab04 -->
+        <activity
+            android:name=".activity.Tab04Activity"
+            android:label="@string/title_activity_tab04" >
+        </activity>
+        <!-- 登录 -->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <!-- 聊天界面 -->
+        <activity
+            android:name=".activity.ChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
+        <!-- 图灵机器人 -->
+        <activity
+            android:name=".activity.TuringChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
+        <!-- 关于界面 -->
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <!-- 设置界面 -->
+        <activity android:name=".activity.SettingActivity" />
+        <!-- 瀑布流菜单页 -->
+        <activity android:name="com.shankes.websocketclient.activity.grid.sample.MenuStaggeredActivity" />
+        <!-- 瀑布流分页 -->
+        <activity android:name="com.shankes.websocketclient.activity.grid.sample.StaggeredGridActivity" />
+        <activity android:name="com.shankes.websocketclient.activity.grid.sample.StaggeredGridActivityFragment" />
+        <activity android:name="com.shankes.websocketclient.activity.grid.sample.StaggeredGridEmptyViewActivity" />
+        <activity android:name="com.shankes.websocketclient.activity.grid.sample.ListViewActivity" />
+        <!-- 左滑右滑飞出卡片 -->
+        <activity android:name=".flingswipe.sample.FlingSwipeActivity" />
+        <!-- 雷达扫描 -->
+        <activity
+            android:name=".activity.RadarActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".activity.MoveParentActivity"
+            android:label="@string/title_activity_fab" >
+        </activity>
+        <activity
+            android:name=".activity.SelectActivity"
+            android:label="@string/title_activity_select" >
+        </activity>
+        <activity
+            android:name=".activity.ChartActivity"
+            android:label="@string/title_activity_chart" >
+        </activity>
+        <activity
+            android:name=".activity.wheelview.WheelViewActivity"
+            android:label="@string/title_activity_welcome" >
         </activity>
     </application>
 

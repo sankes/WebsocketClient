@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/chat_item_to_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="2016-09-13 20:36:02"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/chat_item_to_content_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="你好"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.shankes.volley.customview.CircleNetworkImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@mipmap/headicon_cat"
+                app:border_color="@color/white"
+                app:border_width="2dp" />
+
+            <TextView
+                android:id="@+id/chat_item_to_username_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

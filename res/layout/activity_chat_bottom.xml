@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/pic_tab_top_bg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <EditText
+        android:id="@+id/chat_bottom_send_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="请输入你要发送的消息.." />
+
+    <Button
+        android:id="@+id/chat_bottom_send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送" />
+
+</LinearLayout>

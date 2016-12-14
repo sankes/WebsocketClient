@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:background="@mipmap/pic_tab_top_middle_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <com.shankes.volley.customview.CircleNetworkImageView
+        android:id="@+id/cniv_tab_04_top_user_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/tv_tab_04_top_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/white" />
+
+</LinearLayout>
