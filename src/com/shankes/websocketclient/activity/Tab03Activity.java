@@ -2,11 +2,15 @@ package com.shankes.websocketclient.activity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,10 +18,12 @@ import android.widget.Button;
 import android.widget.SeekBar;
 
 import com.shankes.app.ExitActivity;
+import com.shankes.customview.dashboardview.DashboardView;
+import com.shankes.customview.dashboardview.HighlightCR;
 import com.shankes.customview.roundprogress.RoundProgressBar;
 import com.shankes.customview.satellitemenu.SatelliteMenu;
-import com.shankes.customview.satellitemenu.SatelliteMenuItem;
 import com.shankes.customview.satellitemenu.SatelliteMenu.SateliteClickedListener;
+import com.shankes.customview.satellitemenu.SatelliteMenuItem;
 import com.shankes.customview.waveview.WaveView;
 import com.shankes.util.LogUtil;
 import com.shankes.util.ToastUtil;
@@ -40,13 +46,17 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 	// 圆形进度条
 	private RoundProgressBar roundProgressBar;
 
+	// 仪表盘
+	private DashboardView dashboardView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		initSeekBar();
-		initWaveView();
-		initSatelliteMenu();
+		initSeekBar();// 初始化滑动控件
+		initWaveView();// 初始化波纹
+		initSatelliteMenu();// 初始化卫星菜单
+		initDashboard();// 初始化仪表盘
 	}
 
 	@Override
@@ -62,6 +72,7 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 
 		menu = (SatelliteMenu) findViewById(R.id.menu);
 		roundProgressBar = (RoundProgressBar) findViewById(R.id.roundProgressBar);
+		dashboardView = (DashboardView) findViewById(R.id.dashboard_view);
 	}
 
 	@Override
@@ -75,6 +86,9 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 
 	}
 
+	/**
+	 * 初始化波纹
+	 */
 	private void initWaveView() {
 		// waveView.setProgress(80);
 		seekBar.setProgress(seekBar.getProgress() - 1);
@@ -82,12 +96,16 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 		LogUtil.i(TAG, String.valueOf(seekBar.getProgress()));
 	}
 
+	/**
+	 * 初始化滑动控件
+	 */
 	private void initSeekBar() {
 		seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 				waveView.setProgress(progress);
 				roundProgressBar.setProgress(progress);// 圆形进度条
+				setDashboardValue(progress);
 			}
 
 			@Override
@@ -103,6 +121,9 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 		seekBar.setProgress(seekBar.getProgress() - 1);
 	}
 
+	/**
+	 * 初始化卫星菜单
+	 */
 	private void initSatelliteMenu() {
 		// Set from XML, possible to programmatically set
 		// float distance =
@@ -160,6 +181,24 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 		});
 	}
 
+	/**
+	 * 初始化仪表盘
+	 */
+	private void initDashboard() {
+		List<HighlightCR> highlight = new ArrayList<>();
+		highlight.add(new HighlightCR(150, 100, Color.GREEN));
+		highlight.add(new HighlightCR(250, 80, Color.BLUE));
+		highlight.add(new HighlightCR(330, 60, Color.RED));
+		dashboardView.setStripeHighlightColorAndRange(highlight);
+		dashboardView.setStripeMode(DashboardView.StripeMode.OUTER);
+		dashboardView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				taskControl();
+			}
+		});
+	}
+
 	@Override
 	public void onClick(View v) {
 		// Intent intent = null;
@@ -180,22 +219,67 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 		return false;
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+	/**
+	 * 控制定时任务开启关闭(仪表盘)
+	 */
+	private void taskControl() {
+		if (timer == null) {// 开启定时任务
+			timer = new Timer();
+			task = new TimerTask() {
+				@Override
+				public void run() {
+					Message message = Message.obtain();
+					message.what = 0x11;
+					handler.sendMessage(message);
+				}
+			};
+			timer.schedule(task, 0, 530);
+		} else {// 取消定时任务
+			timer.cancel();
+			timer = null;
+			task.cancel();
+		}
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	// (仪表盘)
+	private Timer timer = null;
+	private TimerTask task = null;
+	private Handler handler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			switch (msg.what) {
+			case 0x11:
+				setDashboardRandomValue();
+				break;
+
+			default:
+				break;
+			}
 		}
-		return super.onOptionsItemSelected(item);
+	};
+
+	/**
+	 * 在取值范围内随机产生一个数,设置仪表盘的数值为该数(仪表盘)
+	 */
+	private void setDashboardRandomValue() {
+		Random random = new Random();
+		int from = dashboardView.getMinValue();
+		int to = dashboardView.getMaxValue();
+		int ranValue = random.nextInt(to - from) + from; // 在取值范围内随机产生一个数
+		dashboardView.setRealTimeValue(ranValue, true, 500);
+	}
+
+	/**
+	 * 设置仪表盘的数值(仪表盘)
+	 * 
+	 * @param progress
+	 *            1-100
+	 */
+	private void setDashboardValue(int progress) {
+		int from = dashboardView.getMinValue();
+		int to = dashboardView.getMaxValue();
+		float value = (float) ((to - from) * progress * 0.01 + from);
+		dashboardView.setRealTimeValue(value);
 	}
 }

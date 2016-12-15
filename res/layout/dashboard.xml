@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 仪表盘 -->
+<com.shankes.customview.dashboardview.DashboardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dashboard="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    dashboard:bigSliceCount="10"
+    dashboard:headerRadius="50dp"
+    dashboard:headerTitle="km/h"
+    dashboard:maxValue="60"
+    dashboard:measureTextSize="10sp"
+    dashboard:minValue="-20"
+    dashboard:radius="110dp"
+    dashboard:realTimeValue="30"
+    dashboard:sliceCountInOneBigSlice="2"
+    dashboard:startAngle="150"
+    dashboard:stripeWidth="20dp"
+    dashboard:sweepAngle="240" />

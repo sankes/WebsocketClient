@@ -67,5 +67,7 @@
         roundprogress:textColor="@color/red"
         roundprogress:textIsDisplayable="true"
         roundprogress:textSize="18sp" />
+    
+    <include layout="@layout/dashboard" />
 
 </FrameLayout>

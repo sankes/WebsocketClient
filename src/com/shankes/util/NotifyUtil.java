@@ -360,7 +360,8 @@ public class NotifyUtil {
 		setCompatBuilder(pendingIntent, smallIcon, ticker, title, content, sound, vibrate, lights);
 		cBuilder.setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), largeIcon));
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+		// if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+		if (Build.VERSION.SDK_INT >= 21) {
 			cBuilder.addAction(leftbtnicon, lefttext, leftPendingIntent);
 			cBuilder.addAction(rightbtnicon, righttext, rightPendingIntent);
 		} else {
