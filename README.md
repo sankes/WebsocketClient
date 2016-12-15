@@ -44,3 +44,6 @@
 >>>>![](https://github.com/sankes/WebsocketClient/raw/master/screenshot/screenshot_08_setting.png "tab04我的界面-设置界面")  
 >>###6.1tab04我的界面-关于  
 >>>>![](https://github.com/sankes/WebsocketClient/raw/master/screenshot/screenshot_09_about.png "tab04我的界面-关于")  
+
+##说明:  
+>>>其中部分控件引用于网络,这里链接找不到了,还请见谅
