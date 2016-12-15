@@ -1,7 +1,10 @@
 # 包含众多控件的一个demo
+===
+
 >* Tab tab界面切换
 >* websocket 和服务端建立websocket长连接
 >* butterknife 黄油刀
+>* Glide 加载网络图片框架(自带缓存,加入动画效果,改变图片形状等)
 >* StaggeredGrid 流式布局
 >* WheelView 滚轮控件(这里用来做省市区三级联动)
 >* ChartView 柱状图
@@ -40,10 +43,11 @@
 >>![](https://github.com/sankes/WebsocketClient/raw/master/screenshot/screenshot_06_tab04_my.png "tab04我的界面")  
 >>###6.1tab04我的界面-图灵机器人  
 >>>>![](https://github.com/sankes/WebsocketClient/raw/master/screenshot/screenshot_07_turing.png "tab04我的界面-图灵机器人")  
->>###6.1tab04我的界面-设置界面  
+>>###6.2tab04我的界面-设置界面  
 >>>>![](https://github.com/sankes/WebsocketClient/raw/master/screenshot/screenshot_08_setting.png "tab04我的界面-设置界面")  
->>###6.1tab04我的界面-关于  
+>>###6.3tab04我的界面-关于  
 >>>>![](https://github.com/sankes/WebsocketClient/raw/master/screenshot/screenshot_09_about.png "tab04我的界面-关于")  
+>>###6.4tab04我的界面-增加Glide加载图片框架(自带缓存,加入动画效果,改变图片形状等)  
 
 ##说明:  
 >>>其中部分控件引用于网络,这里链接找不到了,还请见谅

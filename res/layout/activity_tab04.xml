@@ -9,4 +9,9 @@
 
     <include layout="@layout/activity_tab04_middle" />
 
+    <ImageView
+        android:id="@+id/img_glide_test"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
 </LinearLayout>

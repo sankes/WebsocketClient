@@ -5,10 +5,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.shankes.app.ExitActivity;
+import com.shankes.util.glide.transform.GlideRoundTransform;
 import com.shankes.volley.customview.CircleNetworkImageView;
 import com.shankes.volley.util.ImageLoaderUtil;
 import com.shankes.websocketclient.R;
@@ -23,6 +28,8 @@ public class Tab04Activity extends ExitActivity {
 	private RelativeLayout settingRelativeLayout;
 	private RelativeLayout aboutRelativeLayout;
 
+	private ImageView mImgGlideTest;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,6 +37,8 @@ public class Tab04Activity extends ExitActivity {
 		String netWorkImageViewUrl = "https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/207.jpg?2";
 		UserInfo userInfo = new UserInfo(null, "小雪", netWorkImageViewUrl, 23, "girl");
 		loadUserInfo(userInfo);
+
+		initGlideLoadImg();
 	}
 
 	@Override
@@ -45,6 +54,42 @@ public class Tab04Activity extends ExitActivity {
 		turingRelativeLayout = (RelativeLayout) findViewById(R.id.rl_tab04_middle_turing);
 		settingRelativeLayout = (RelativeLayout) findViewById(R.id.rl_tab04_middle_setting);
 		aboutRelativeLayout = (RelativeLayout) findViewById(R.id.rl_tab04_middle_about);
+
+		mImgGlideTest = (ImageView) findViewById(R.id.img_glide_test);
+	}
+
+	private void initGlideLoadImg() {
+		// TODO Auto-generated method stub
+		// 动态图一张,奔跑的小蓝人
+		String urlGif = "http://f.hiphotos.baidu.com/zhidao/pic/item/1e30e924b899a901f13830bc1f950a7b0208f52f.gif";
+		String urlYangmi = "https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/207.jpg?2";
+		Glide.with(this)// 1.)设置绑定生命周期
+				// 2.)简单的加载图片实例
+				.load(urlYangmi)
+				// 3.)设置动态GIF加载方式
+				// .asBitmap()// 显示gif静态图片
+				// .asGif()// 显示gif动态图片
+				// 4.)设置加载中以及加载失败图片
+				.placeholder(R.drawable.ic_launcher).error(R.drawable.ic_launcher)// 以及加载失败图片
+				// 5.)设置跳过内存缓存
+				// .skipMemoryCache(true)
+				// 6.)设置下载优先级
+				.priority(Priority.NORMAL)
+				// 7.)设置缓存策略,all:缓存源资源和转换后的资源
+				.diskCacheStrategy(DiskCacheStrategy.ALL)
+				// 8.)设置加载动画,api也提供了几个常用的动画：比如crossFade()
+				// 也可自定义,如 .animate(R.anim.item_alpha_in)
+				.crossFade()
+				// 9.)设置缩略图支持,先加载缩略图 再加载全图
+				.thumbnail(0.1f)
+				// 10.)设置动态转换
+				// api提供了比如：centerCrop()、fitCenter()等函数
+				// 也可以通过自定义Transformation，举例说明：比如一个人圆角转化器
+				.transform(new GlideRoundTransform(this, 80))// 动态转换(圆角转化器)
+				// .centerCrop()
+				// .fitCenter()
+				// 11.)加载到ImageView容器中
+				.into(mImgGlideTest);
 	}
 
 	@Override

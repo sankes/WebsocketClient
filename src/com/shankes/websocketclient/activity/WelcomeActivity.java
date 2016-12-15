@@ -19,13 +19,13 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 
 	private ImageView welcomeBgIV;
 	private static boolean isClick = false;
+	private static final int toAppMain = 0x10001;
 
-	private static final int goLoginActivity = 0x10001;
 	static Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case goLoginActivity:
-				goLogin();
+			case toAppMain:
+				toAppMain();
 				break;
 
 			default:
@@ -52,7 +52,7 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 		// WindowManager.LayoutParams.FLAG_FULLSCREEN);// 去掉信息栏
 		setContentView(R.layout.activity_welcome);
 		instance = this;
-		firstStart();// 判断是否第一次打开app
+		isFirstStart();// 判断是否第一次打开app
 		initView();
 		initEventClick();
 	}
@@ -69,7 +69,7 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.iv_welcome_bg:
-			goLogin();
+			toAppMain();
 			break;
 
 		default:
@@ -80,7 +80,7 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 	/**
 	 * 判断是否第一次打开app
 	 */
-	private void firstStart() {
+	private void isFirstStart() {
 		SharedPreferences preferences = getSharedPreferences("websocketclient", MODE_PRIVATE);
 		int count = preferences.getInt("firststart", 0);
 		// 判断程序与第几次运行
@@ -96,16 +96,16 @@ public class WelcomeActivity extends Activity implements OnClickListener {
 			intent.setClass(getApplicationContext(), GuideActivity.class);
 			startActivity(intent);
 			finish();
-		} else {
+		} else {// 睡眠两秒后进入程序主界面
 			isClick = false;
-			new SleepThread(2000, goLoginActivity, handler);
+			new SleepThread(2000, toAppMain, handler);
 		}
 	}
 
 	/**
 	 * 进入主界面
 	 */
-	private static void goLogin() {
+	private static void toAppMain() {
 		if (!isClick) {
 			isClick = true;
 			Intent intent = new Intent();
