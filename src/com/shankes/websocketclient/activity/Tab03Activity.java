@@ -39,7 +39,8 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 	private SeekBar seekBar;
 	private WaveView waveView;
 
-	private Button initBtn;
+	private Button provinceCityAreaButton;
+	private Button viewPagerVerticalButton;
 
 	private SatelliteMenu menu;
 
@@ -68,7 +69,8 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 	protected void initView() {
 		seekBar = (SeekBar) findViewById(R.id.seek_bar);
 		waveView = (WaveView) findViewById(R.id.wave_view);
-		initBtn = (Button) findViewById(R.id.init_btn);
+		provinceCityAreaButton = (Button) findViewById(R.id.init_btn);
+		viewPagerVerticalButton = (Button) findViewById(R.id.viewpager_vertical_btn);
 
 		menu = (SatelliteMenu) findViewById(R.id.menu);
 		roundProgressBar = (RoundProgressBar) findViewById(R.id.roundProgressBar);
@@ -77,8 +79,8 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 
 	@Override
 	protected void initEventClick() {
-		initBtn.setOnClickListener(this);
-
+		provinceCityAreaButton.setOnClickListener(this);
+		viewPagerVerticalButton.setOnClickListener(this);
 	}
 
 	@Override
@@ -207,6 +209,10 @@ public class Tab03Activity extends ExitActivity implements OnClickListener {
 			// waveView.setProgress(80);
 			// seekBar.setProgress(seekBar.getProgress() - 1);
 			intent.setClass(Tab03Activity.this, WheelViewActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.viewpager_vertical_btn:
+			intent.setClass(Tab03Activity.this, ViewPagerVerticalActivity.class);
 			startActivity(intent);
 			break;
 		default:

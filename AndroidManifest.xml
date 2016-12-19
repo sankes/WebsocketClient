@@ -130,21 +130,28 @@
         <activity
             android:name=".activity.RadarActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- 可移动回弹的View -->
         <activity
             android:name=".activity.MoveParentActivity"
             android:label="@string/title_activity_fab" >
         </activity>
+        <!-- 直尺选择 -->
         <activity
             android:name=".activity.SelectActivity"
             android:label="@string/title_activity_select" >
         </activity>
+        <!-- 柱状图 -->
         <activity
             android:name=".activity.ChartActivity"
             android:label="@string/title_activity_chart" >
         </activity>
+        <!-- 省市区三级联动选择 -->
         <activity
             android:name=".activity.wheelview.WheelViewActivity"
             android:label="@string/title_activity_welcome" >
+        </activity>
+        <!-- 竖向ViewPager -->
+        <activity android:name=".activity.ViewPagerVerticalActivity" >
         </activity>
     </application>
 

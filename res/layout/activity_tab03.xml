@@ -7,7 +7,8 @@
     android:background="@mipmap/pic_tab_bg" >
 
     <!-- 波浪进度 -->
-    <com.shankes.customview.waveview.WaveView
+
+    <com.shankes.customview.waveview.WaveView
         android:id="@+id/wave_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +26,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="50dp"
-        android:text="初始化" />
+        android:text="省市区三级联动选择" />
+
+    <Button
+        android:id="@+id/viewpager_vertical_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:text="竖向ViewPager" />
 
     <!-- 滑动控制按钮 -->
 
@@ -67,7 +76,7 @@
         roundprogress:textColor="@color/red"
         roundprogress:textIsDisplayable="true"
         roundprogress:textSize="18sp" />
-    
+
     <include layout="@layout/dashboard" />
 
 </FrameLayout>

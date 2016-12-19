@@ -2,6 +2,7 @@
 ===
 
 >* Tab tab界面切换
+>* 竖向ViewPager
 >* websocket 和服务端建立websocket长连接
 >* butterknife 黄油刀
 >* Glide 加载网络图片框架(自带缓存,加入动画效果,改变图片形状等)
